@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Categories</h2>
+<section>
+  <a href="/categories/new"><button>Add New Category</button></a>
+</section>
+
+{% for category_title, sub_categories in group_cat.items() %}
+<h2>{{category_title}}</h2>
+<div>
+  {% for category in sub_categories %}
+  <div class="display-entries">
+    <a href="/categories/{{category.id}}">{{category.sub_cat}}</a>
+    <div class="buttons">
+      <form class="delete-form" action="/categories/{{category.id}}/delete" method="POST"> <!-- NEW -->
+        <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:red" aria-hidden="true"></i></button> <!-- NEW -->
+      </form>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endfor %}
+{% endblock %}

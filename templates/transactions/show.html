@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <div>
+    <p>{{transaction.product}}</p>
+    <a href="/suppliers/{{transaction.supplier.id}}">{{transaction.supplier.supplier_name}}</a>
+    <hr>
+    <p>PO Number: {{transaction.po_number}}</p>
+    <p>Price: {{transaction.price}}</p>
+    <p>Order Date: {{transaction.date}}</p>
+    <p>{{transaction.category.main_cat}} - {{transaction.category.sub_cat}}</p>
+    <p>Invoice: {{transaction.invoice_number}}</p>
+    <p><a href="/transactions/{{transaction.id}}/edit">Edit</a></p>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Transactions</h2>
+<section>
+  <a href="/transactions/new"><button>Add New Transaction</button></a>
+</section>
+
+<div class="dropdown">
+  <div id="myDropdown" class="dropdown-content">
+    <a href="/transactions">All</a>
+    <a href="/transactions/month/1">January</a>
+    <a href="/transactions/month/2">February</a>
+    <a href="/transactions/month/3">March</a>
+    <a href="/transactions/month/4">April</a>
+    <a href="/transactions/month/5">May</a>
+    <a href="/transactions/month/6">June</a>
+    <a href="/transactions/month/7">July</a>
+    <a href="/transactions/month/8">August</a>
+    <a href="/transactions/month/9">September</a>
+    <a href="/transactions/month/10">October</a>
+    <a href="/transactions/month/11">November</a>
+    <a href="/transactions/month/12">December</a>
+  </div>
+</div>
+
+
+
+{% for transaction in all_transactions %}
+  <div class="display-entries">
+    <div class="content">
+      <a href="/transactions/{{transaction.id}}">{{transaction.product}}</a>
+      <div class="description">
+        <a href="/suppliers/{{transaction.supplier.id}}">{{transaction.supplier.supplier_name}}</a>
+      </div>
+
+      <p>PO Number: {{transaction.po_number}}</p>
+      <p>Price: £{{transaction.price}}</p>
+      <p>Order Date: {{transaction.date}}</p>
+      
+      
+      <div class="buttons">
+        <form class="delete-form" action="/transactions/{{transaction.id}}/delete" method="POST"> <!-- NEW -->
+          <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:red" aria-hidden="true"></i></button> <!-- NEW -->
+        </form>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form action="/transactions/{{transaction.id}}" method="post">
+  
+    <div>
+    <label for="supplier">Select a Supplier:</label>
+    <select name="supplier_id" id="supplier">
+      <option> Supplier </option>
+      {% for supplier in all_suppliers %}
+      <option value="{{supplier.id}}" {% if supplier.id == transaction.supplier.id %} selected {% endif %}>
+        {{supplier.supplier_name}}
+      </option>
+      {% endfor %}
+    </select>
+  </div>
+  
+  <div>
+      <label for="category">Select a Category:</label>
+      <select name="category_id" id="category">
+        <option> Category </option>
+        {% for category in all_categories %}
+        <option value="{{category.id}}" {% if category.id == transaction.category.id %} selected {% endif %}>
+          {{category.main_cat}} - {{category.sub_cat}}
+        </option>
+        {% endfor %}
+      </select>
+  </div>
+  
+  <div>
+    <label for="product">Product:</label>
+    <input type="text" id="product" name="product" value="{{transaction.product}}" required autofocus>
+  </div>
+
+  <div>
+    <label for="price">Price: £</label>
+    <input type="number" id="price" name="price" value="{{transaction.price}}" required autofocus>
+  </div>
+
+  
+  <div>
+      <label for="po_number">PO Number:</label>
+      <input type="text" id="po_number" name="po_number" value="{{transaction.po_number}}" required autofocus>
+  </div>
+  
+  <div>
+      <label for="order_date">Date:</label>
+      <input type="date" id="order_date" name="order_date" value="{{transaction.date}}" required>
+  </div>
+  
+  <div>
+        <label for="invoice_number">Invoice Number:</label>
+        <input type="text" id="invoice_number" name="invoice_number" value="{{transaction.invoice_number}}" required>
+  </div>
+
+
+  <button class="submit" type="submit">Update Transaction</button>
+
+</form>
+
+{% endblock %}

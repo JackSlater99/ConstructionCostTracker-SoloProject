@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="/categories" method="post">
+    <div>
+      <label for="main_category_name">Main Category Name:</label>
+      <input type="text" id="main_category_name" name="main_category_name" placeholder="Main Category Name" required autofocus>
+    </div>
+  
+    <div>
+      <label for="sub_category_name">Sub Category Name:</label>
+      <input type="text" id="sub_category_name" name="sub_category_name" placeholder="Sub Category Name" required>
+    </div>
+  
+    <button class="submit" type="submit">Add category</button>
+  
+  </form>
+{% endblock %}

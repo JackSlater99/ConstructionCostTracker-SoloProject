@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <div>
+    <p>{{category.main_cat}}</p>
+    <hr>
+    <p>{{category.sub_cat}}</p>
+    <p><a href="/categories/{{category.id}}/edit">Edit</a></p>
+  </div>
+
+<hr>
+
+{% for transaction in transactions %}
+  <div class="display-entries">
+    <div class="content">
+      <a href="/transactions/{{transaction.id}}">{{transaction.product}}</a>
+      <div class="description">
+        <a href="/suppliers/{{transaction.supplier.id}}">{{transaction.supplier.supplier_name}}</a>
+      </div>
+
+      <p>PO Number: {{transaction.po_number}}</p>
+      <p>Price: £{{transaction.price}}</p>
+      <p>Order Date: {{transaction.date}}</p>
+      
+      
+      <div class="buttons">
+        <form class="delete-form" action="/transactions/{{transaction.id}}/delete" method="POST"> 
+          <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:red" aria-hidden="true"></i></button>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>New Transaction</h1>
+
+<form action="/transactions" method="post">
+  <div>
+    <label for="supplier">Select a Supplier:</label>
+    <select name="supplier_id" id="supplier" required>
+      <option value=""selected disabled> Select Supplier </option>
+      {% for supplier in all_suppliers %}
+      <option value="{{supplier.id}}">
+        {{supplier.supplier_name}}
+      </option>
+      {% endfor %}
+    </select>
+  </div>
+  
+  <div>
+      <label for="category">Select a Category:</label>
+      <select name="category_id" id="category" required>
+        <option value=""selected disabled> Select Category </option>
+        {% for category in all_categories %}
+        <option value="{{category.id}}">
+          {{category.main_cat}} - {{category.sub_cat}}
+        </option>
+        {% endfor %}
+      </select>
+  </div>
+
+  <div>
+    <label for="product">Product:</label>
+    <input type="text" id="product" name="product" placeholder="Product" required autofocus>
+  </div>
+
+  <div>
+    <label for="price">Price: £</label>
+    <input type="number" id="price" name="price" placeholder="Price" required autofocus>
+  </div>
+
+  
+  <div>
+      <label for="po_number">PO Number:</label>
+      <input type="text" id="po_number" name="po_number" placeholder="PO Number" required autofocus>
+  </div>
+  
+  <div>
+      <label for="order_date">Date:</label>
+      <input type="date" id="order_date" name="order_date" placeholder="Date" required>
+  </div>
+  
+  <div>
+        <label for="invoice_number">Invoice Number:</label>
+        <input type="text" id="invoice_number" name="invoice_number" placeholder="Invoice Number" required>
+  </div>
+  
+  <button class="submit" type="submit">Add Transaction</button>
+  
+  </form>
+{% endblock %}

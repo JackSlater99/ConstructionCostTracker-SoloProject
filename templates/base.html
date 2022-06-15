@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous">    
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_navigation_bar.css') }}">
+    <title>Document</title>
+</head>
+<header>
+<h1>Construction Site Cost Tracker</h1>
+<nav>
+    <ul>
+        <li>
+            <input name="nav" type="radio" id="home"><a class="menu" href="/">Home</a>
+        </li>
+        <li>
+            <input name="nav" type="radio" id="statistics"><a class="menu" href="/statistics">Statistics</a>
+        </li>
+        <li>
+            <input name="nav" type="radio" id="transactions"><a class="menu" href="/transactions">Transactions</a>
+        </li>
+        <li>
+            <input name="nav" type="radio" id="suppliers"><a class="menu" href="/suppliers">Suppliers</a>
+        </li>
+        <li>
+            <input name="nav" type="radio" id="categories"><a class="menu" href="/categories">Categories</a>
+        </li>
+    </ul>
+</nav>
+</header>
+<body>
+    {% block content %}
+    {% endblock %}
+</body>
+<footer>
+<p>Jack Slater <span>&copy;</span></p>
+</footer>
+</html>
