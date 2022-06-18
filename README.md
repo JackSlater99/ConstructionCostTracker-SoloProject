@@ -1,10 +1,19 @@
 # Construction Cost Tracker
 
-Simple overview of use/purpose.
+This solo project was created during week 5 of the CodeClan Proffesional Software Development Course. The project week gave us a choice of 4 project briefs to complete which would showcase the skills learnt in the first 4 weeks of the course.
 
-## Description
+## Brief
 
-An in-depth paragraph about your project and overview of use.
+Build an app that allows a user to track their spending:
+- The app should allow the user to create and edit `Transaction`s.
+- The app should allow the user to create and edit `Merchant`s, e.g. Tesco, Amazon, ScotRail.
+- The app should allow the user to create and edit `Tag`s for their spending, e.g. groceries, entertainment, transport.
+- The user should be able to assign `Tag`s and `Merchant`s to a `Transaction`, as well as an amount spent on each `Transaction`.
+- The app should display all the `Transaction`s that a user has made in a single view, with each `Transaction`'s amount, `Merchant` and `Tag`, as well as the total amount of all transactions.
+
+## Extension Features
+
+
 
 ## Getting Started
 
