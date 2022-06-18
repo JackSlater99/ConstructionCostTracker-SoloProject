@@ -47,9 +47,9 @@ To get started, clone this repository to a location of your choice. Commands sho
 * Link Database and SQL file from project directory:
    - ``` psql -d cost_tracker -f db/cost_tracker.sql ```
 * Run Flask:
-   - ```bash
-   flask run 
-   ```
+```bash
+flask run 
+```
 
 Navigate to http://127.0.0.1:5000 (default route for Flask) in your browser or click on the link in the terminal.
 
