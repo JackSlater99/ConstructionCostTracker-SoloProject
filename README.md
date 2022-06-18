@@ -2,6 +2,8 @@
 
 This solo project was created during week 5 of the CodeClan Proffesional Software Development Course. The project week gave us a choice of 4 project briefs to complete which would showcase the skills learnt in the first 4 weeks of the course.
 
+![image](https://user-images.githubusercontent.com/101419891/174460014-205e0661-fe98-4faf-b212-bdf101bcb167.png)
+
 ## Brief
 
 Build an app that allows a user to track their spending:
