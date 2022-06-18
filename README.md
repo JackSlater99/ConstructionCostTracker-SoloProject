@@ -39,12 +39,12 @@ Matplotlib: ``` pip install -U matplotlib ```
 
 ### Executing program
 
-Create Database with pSQL:
-``` createdb cost_tracker ```
-Link Database and SQL file from project directory:
-``` psql -d cost_tracker -f db/cost_tracker.sql ```
-Run Flask:
-``` flask run ```
+* Create Database with pSQL:
+- ``` createdb cost_tracker ```
+* Link Database and SQL file from project directory:
+- ``` psql -d cost_tracker -f db/cost_tracker.sql ```
+* Run Flask:
+- ``` flask run ```
 
 Navigate to http://127.0.0.1:5000 (default route for Flask) in your browser or click on the link in the terminal.
 
