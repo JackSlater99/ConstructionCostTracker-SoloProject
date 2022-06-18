@@ -34,9 +34,6 @@ To get started, clone this repository to a location of your choice. Commands sho
 ```bash
 git clone https://github.com/JackSlater99/Week-5---Solo-Python-Project 
 ```
-* [Python3](python.org/downloads/)
-* [PIP](https://pip.pypa.io/en/stable/installation/)
-* [PostgreSQL](https://www.postgresql.org/download/)
 * Flask: 
 ```bash 
 pip install -U Flask
