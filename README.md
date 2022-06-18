@@ -12,7 +12,9 @@ Build an app that allows a user to track their spending:
 - The app should display all the `Transaction`s that a user has made in a single view, with each `Transaction`'s amount, `Merchant` and `Tag`, as well as the total amount of all transactions.
 
 ## Extension Features
-
+- View all `Transaction`s by `Category` or `Supplier`.
+- Display Total amount of `Transaction`s for each cattegory.
+- Graph using Matplotlib to display total cost per per `Category`.
 
 
 ## Getting Started
