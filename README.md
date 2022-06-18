@@ -30,21 +30,24 @@ To get started, clone this repository to a location of your choice. Commands sho
 
 ### Installing
 
-Copy Git Repository: ``` git clone https://github.com/JackSlater99/Week-5---Solo-Python-Project ```
+Copy Git Repository: 
+   -  ``` git clone https://github.com/JackSlater99/Week-5---Solo-Python-Project ```
 [Python3](python.org/downloads/)
 [PIP](https://pip.pypa.io/en/stable/installation/)
 [PostgreSQL](https://www.postgresql.org/download/)
-Flask: ``` pip install -U Flask```
-Matplotlib: ``` pip install -U matplotlib ```
+Flask: 
+   - ``` pip install -U Flask```
+Matplotlib: 
+   - ``` pip install -U matplotlib ```
 
 ### Executing program
 
 * Create Database with pSQL:
-- ``` createdb cost_tracker ```
+   - ``` createdb cost_tracker ```
 * Link Database and SQL file from project directory:
-- ``` psql -d cost_tracker -f db/cost_tracker.sql ```
+   - ``` psql -d cost_tracker -f db/cost_tracker.sql ```
 * Run Flask:
-- ``` flask run ```
+   - ``` flask run ```
 
 Navigate to http://127.0.0.1:5000 (default route for Flask) in your browser or click on the link in the terminal.
 
