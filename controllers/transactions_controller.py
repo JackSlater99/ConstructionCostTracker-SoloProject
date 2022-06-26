@@ -6,18 +6,9 @@ from repositories import stat_repository
 from models.transaction import Transaction
 from flask import Blueprint
 
-
 transactions_blueprint = Blueprint("transactions", __name__)
 
-#HOME PAGE
-
-@transactions_blueprint.route('/')
-def index():
-    supplier = supplier_repository.select_all()
-    category = category_repository.select_all()
-    return render_template("index.html", all_suppliers = supplier, all_categories = category)
-
-#INDEX
+#TRANSACTION INDEX
 
 @transactions_blueprint.route("/transactions")
 def transactions():
@@ -26,9 +17,10 @@ def transactions():
     total_by_cat = transaction_repository.total_category_cost()
     month = 2
     filter = transaction_repository.select_by_month(month)
-    return render_template("transactions/index.html", all_transactions = transactions, total = f"{total:,}", total_by_cat = total_by_cat, filter = filter)
+    number_transactions = len(transactions)
+    return render_template("transactions/index.html", all_transactions = transactions, total = f"{total:,}", total_by_cat = total_by_cat, filter = filter, number_transactions = number_transactions)
 
-#NEW
+#NEW TRANSACTION
 
 @transactions_blueprint.route("/transactions/new", methods=["GET"])
 def new_transactions():
@@ -36,7 +28,7 @@ def new_transactions():
     category = category_repository.select_all()
     return render_template("transactions/new.html", all_suppliers = supplier, all_categories = category)
 
-#CREATE
+#CREATE TRANSACTION
 
 @transactions_blueprint.route("/transactions", methods=["POST"])
 def create_transactions():
@@ -53,7 +45,7 @@ def create_transactions():
     transaction_repository.save(transaction)
     return redirect("/transactions")
 
-#SHOW
+#SHOW TRANSACTION
 
 @transactions_blueprint.route("/transactions/<id>", methods=["GET"])
 def show_transaction(id):
@@ -61,7 +53,7 @@ def show_transaction(id):
     return render_template("transactions/show.html", transaction = found_transaction)
 
 
-#EDIT
+#EDIT TRANSACTION
 
 @transactions_blueprint.route("/transactions/<id>/edit")
 def edit_transactions(id):
@@ -70,7 +62,7 @@ def edit_transactions(id):
     category = category_repository.select_all()
     return render_template("/transactions/edit.html", transaction = transaction, all_suppliers = supplier, all_categories = category)
 
-#UPDATEtransaction
+#UPDATE TRANSACTION
 
 @transactions_blueprint.route("/transactions/<id>", methods=["POST"])
 def update_transaction(id):
@@ -87,17 +79,19 @@ def update_transaction(id):
     transaction_repository.update(transaction)
     return redirect("/transactions")
 
-#DELETE
+#DELETE TRANSACTION
 
 @transactions_blueprint.route("/transactions/<id>/delete", methods=["POST"])
 def delete_transaction(id):
     transaction_repository.delete(id)
     return redirect("/transactions")
 
-#FILTER BY MONTH
-
+#FILTER TRANSACTION BY MONTH
 
 @transactions_blueprint.route("/transactions/month/<id>", methods=["GET"])
 def filter_month_transaction(id):
     found_transaction = transaction_repository.select_by_month(id)
-    return render_template("transactions/month.html", transactions = found_transaction)
+    transactions = transaction_repository.select_all()
+    total = transaction_repository.total_cost()
+    number_transactions = len(transactions)
+    return render_template("transactions/month.html", filtered_transactions = found_transaction, total = f"{total:,}", number_transactions = number_transactions)

@@ -1,0 +1,92 @@
+.table-container {
+    justify-content: center;
+    background-color: lightgrey;
+  }
+  
+  table {
+    width: 95%;
+    background-color: lightgrey;
+    border-collapse: collapse;
+    text-align: center;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  th {
+    padding: 1vw;
+    background-color: navy;
+    color: white;
+  }
+  
+  .empty {
+    background-color: lightgrey;
+  }
+  
+  .amount {
+    text-align: right;
+  }
+  
+  .sum {
+    font-weight: bold;
+    background-color: #036837;
+    color: white;
+    text-align: right;
+    padding: 1vw;
+    border-radius: 0px 0px 10px 10px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  td a {
+    display: block;
+    padding: 1vw;
+    text-decoration: none;
+    color: black;
+  }
+  
+  td a:hover {
+    display: block;
+    text-decoration: none;
+    color: black;
+  }
+  
+  tr:hover {
+    background-color: dodgerblue;
+  }
+  
+  .index-tag {
+    color: dodgerblue;
+    font-size: 0.8rem;
+  }
+
+  .table-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .table-buttons button {
+    background-color: transparent;
+    border: none;
+  }
+
+  .table-buttons a:hover {
+    color: white;
+  }
+
+  .table-buttons button:hover {
+    color: red;
+    cursor: pointer;
+  }
+  
+
+  .rowlink::before {
+    content: "";
+    display: block;
+    position: absolute;
+    align-items: left;
+    width: 70%;
+    height: 1.5em;
+}

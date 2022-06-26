@@ -1,0 +1,103 @@
+.new-form form {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin: 2rem;
+}
+
+.new-form form button {
+    background-color: #e64e4e; 
+    color: white; 
+    font-size: 100%;
+    width : 100%;
+    padding: 10px;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+    border-radius: 5px;
+  }
+  
+  .new-form input[type = text] {
+    padding: 10px;
+    color: black; 
+    font-size: 100%;
+    width : 100%;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: black 1px solid;
+  }
+  
+  .new-form input[type = number] {
+    padding: 10px;
+    color: black; 
+    font-size: 100%;
+    width : 100%;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: black 1px solid;
+  }
+  
+  .new-form input[type = date] {
+    padding: 10px;
+    color: black; 
+    font-size: 100%;
+    width : 100%;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: black 1px solid;
+  }
+  
+  .new-form select {
+    padding: 10px;
+    color: black; 
+    font-size: 100%;
+    width : 100%;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: black 1px solid;
+  }
+
+  .new-form {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    width: 92%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin-top: 1rem;
+}
+
+.show-form p {
+  padding: 10px;
+  color: black; 
+  font-size: 100%;
+  width : 100%;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.show-form a {
+  padding: 10px;
+  color: black; 
+  font-size: 100%;
+  width : 100%;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.show-form a:hover {
+  cursor: pointer;
+  color: #e64e4e;
+}
+
+.show-form h2 {
+  margin: 0.5rem;
+}

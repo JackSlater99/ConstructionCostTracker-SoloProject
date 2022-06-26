@@ -1,33 +1,36 @@
 {% extends "base.html" %}
 
+{% block activenewsupplier %}
+
+class="active"
+
+{% endblock %}
+
 {% block content %}
-<form action="/suppliers" method="post">
-    <div>
-      <label for="supplier_name">Supplier Name:</label>
-      <input type="text" id="supplier_name" name="supplier_name" placeholder="Supplier Name" required autofocus>
-    </div>
-  
-    <div>
-      <label for="supplier_number">Account Number:</label>
-      <input type="text" id="supplier_number" name="supplier_number" placeholder="Supplier Account Number" required>
-    </div>
-  
-    <div>
-        <label for="supplier_manager">Account Manager:</label>
-        <input type="text" id="supplier_manager" name="supplier_manager" placeholder="Supplier Account Manager" required>
-    </div>
+<h1>Add a New Supplier</h1>
+<br>
+<p>Please enter details below to add a new Supplier.</p>
 
-    <div>
-      <label for="supplier_address"> Address:</label>
-      <input type="text" id="supplier_address" name="supplier_address" placeholder="Supplier Address" required>
-    </div>
+<div class="new-form">
+  <form action="/suppliers" method="post">
 
-    <div>
-      <label for="supplier_phone"> Phone Number:</label>
-      <input type="text" id="supplier_phone" name="supplier_phone" placeholder="Supplier Phone Number" required>
-    </div>
-  
+    <label for="supplier_name">Supplier Name:</label>
+    <input type="text" id="supplier_name" name="supplier_name" placeholder="Supplier Name" required autofocus>
+
+    <label for="supplier_number">Account Number:</label>
+    <input type="text" id="supplier_number" name="supplier_number" placeholder="Supplier Account Number" required>
+
+    <label for="supplier_manager">Account Manager:</label>
+    <input type="text" id="supplier_manager" name="supplier_manager" placeholder="Supplier Account Manager" required>
+
+    <label for="supplier_address"> Address:</label>
+    <input type="text" id="supplier_address" name="supplier_address" placeholder="Supplier Address" required>
+
+    <label for="supplier_phone"> Phone Number:</label>
+    <input type="text" id="supplier_phone" name="supplier_phone" placeholder="Supplier Phone Number" required>
+
     <button class="submit" type="submit">Add Supplier</button>
-  
+
   </form>
+</div>
 {% endblock %}

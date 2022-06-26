@@ -1,34 +1,29 @@
 {% extends "base.html" %}
 {% block content %}
+<h1>Edit Supplier</h1>
+<br>
+<p>Please re-enter details below to edit Supplier.</p>
 
-<form action="/suppliers/{{supplier.id}}" method="post">
-  <div>
+<div class="new-form">
+  <form action="/suppliers/{{supplier.id}}" method="post">
+
     <label for="supplier_name">Supplier Name:</label>
     <input type="text" id="supplier_name" name="supplier_name" value="{{supplier.supplier_name}}" required autofocus>
-  </div>
 
-  <div>
     <label for="supplier_number">Supplier Number:</label>
     <input type="text" id="supplier_number" name="supplier_number" value="{{supplier.supplier_number}}" required>
-  </div>
-  
-  <div>
+
     <label for="supplier_manager">Supplier Manager:</label>
     <input type="text" id="supplier_manager" name="supplier_manager" value="{{supplier.supplier_manager}}" required>
-  </div>
 
-  <div>
     <label for="supplier_address"> Address:</label>
-    <input type="text" id="supplier_address" name="supplier_address" placeholder="Supplier Address" required>
-  </div>
+    <input type="text" id="supplier_address" name="supplier_address" value="{{supplier.supplier_address}}" required>
 
-  <div>
     <label for="supplier_phone"> Phone Number:</label>
-    <input type="text" id="supplier_phone" name="supplier_phone" placeholder="Supplier Phone Number" required>
-  </div>
+    <input type="text" id="supplier_phone" name="supplier_phone" value="{{supplier.supplier_phone}}" required>
 
-  <button class="submit" type="submit">Update Supplier</button>
+    <button class="submit" type="submit">Update Supplier</button>
 
-</form>
-
+  </form>
+</div>
 {% endblock %}

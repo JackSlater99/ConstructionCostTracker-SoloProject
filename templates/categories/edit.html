@@ -1,21 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
+<h1>Edit Category</h1>
+<br>
+<p>Please re-enter details below to edit Category.</p>
 
-<form action="/categories/{{category.id}}" method="post">
-  <div>
+<div class="new-form">
+  <form action="/categories/{{category.id}}" method="post">
+
     <label for="main_category_name">Main Category Name:</label>
     <input type="text" id="main_category_name" name="main_category_name" value="{{category.main_cat}}" required autofocus>
-  </div>
 
-  <div>
     <label for="sub_category_name">Sub Category Name:</label>
     <input type="text" id="sub_category_name" name="sub_category_name" value="{{category.sub_cat}}" required>
-  </div>
-  
+    
+    <button class="submit" type="submit">Update Category</button>
 
-
-  <button class="submit" type="submit">Update Category</button>
-
-</form>
-
+  </form>
+</div>
 {% endblock %}

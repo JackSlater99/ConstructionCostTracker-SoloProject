@@ -1,77 +1,65 @@
 {% extends "base.html" %}
 
-{% block content %}
-<section>
-    <h2>Welcome to the Construction Site Cost Tracker</h2>
-    <p>Before adding any transactions, please add some approved suppliers which transactions will be made with. This will allow you to easily keep track of the supplier for each transaction and also quickly access contact details for the respective supplier.</p>
-</section>
-<section>
-    <a href="/suppliers/new"><button>Add New Supplier</button></a>
-</section>
+{% block activehome %}
 
+class="active"
+
+{% endblock %}
+
+{% block content %}
+<h1>Welcome to the Construction Cost Tracker</h1>
+<br>
 <section>
+    <p>Before adding any transactions, please add some approved suppliers which transactions will be made with. This will allow you to easily keep track of the supplier for each transaction and also quickly access contact details for the respective supplier.</p>
+    <br>
     <p>Categories can be created and used to categorise all of your transactions. The total cost for your project will automatically be displayed, however by adding categories, this will allow further totals to be displayed for the specific categories you would like to track!</p>
 </section>
-<section>
-        <a href="/categories/new"><button>Add New Category</button></a>
+<section class="buttons">
+  <div class="top-buttons add-transaction">
+    <a href="/suppliers/new">
+        <p>Add Supplier</p>
+        <i class="fa-solid fa-shop fa-3x"></i>
+    </a>
+  </div>
+  <div class="top-buttons add-transaction">
+    <a href="/categories/new">
+        <p>Add Category</p>
+        <i class="fa-solid fa-tags fa-3x"></i>
+    </a>
+  </div>
+  <div class="top-buttons add-transaction">
+    <a href="/transactions/new">
+        <p>Add Transaction</p>
+        <i class="fa-solid fa-money-bill-transfer fa-3x"></i>
+    </a>
+  </div>
 </section>
 <hr>
-<main>
-    <h3>Add a New Transaction</h3>
-    <form action="/transactions" method="post">
-        <div>
-          <label for="supplier">Select a Supplier:</label>
-          <select name="supplier_id" id="supplier" required>
-            <option value=""selected disabled> Select Supplier </option>
-            {% for supplier in all_suppliers %}
-            <option value="{{supplier.id}}">
-              {{supplier.supplier_name}}
-            </option>
-            {% endfor %}
-          </select>
-        </div>
-        
-        <div>
-            <label for="category">Select a Category:</label>
-            <select name="category_id" id="category" required>
-              <option value=""selected disabled> Select Category </option>
-              {% for category in all_categories %}
-              <option value="{{category.id}}">
-                {{category.main_cat}} - {{category.sub_cat}}
-              </option>
-              {% endfor %}
-            </select>
-        </div>
-      
-        <div>
-          <label for="product">Product:</label>
-          <input type="text" id="product" name="product" placeholder="Product" required autofocus>
-        </div>
-      
-        <div>
-          <label for="price">Price: £</label>
-          <input type="number" id="price" name="price" placeholder="Price" required autofocus>
-        </div>
-      
-        
-        <div>
-            <label for="po_number">PO Number:</label>
-            <input type="text" id="po_number" name="po_number" placeholder="PO Number" required autofocus>
-        </div>
-        
-        <div>
-            <label for="order_date">Date:</label>
-            <input type="text" id="order_date" name="order_date" placeholder="Date" required>
-        </div>
-        
-        <div>
-              <label for="invoice_number">Invoice Number:</label>
-              <input type="text" id="invoice_number" name="invoice_number" placeholder="Invoice Number" required>
-        </div>
-        
-        <button type="submit">Add Transaction</button>
-        
-        </form>
-</main>
+<br>
+<section class="parent">
+  <h1>Statistics</h1>
+  <br>
+  <div class="home-screen-buttons">
+    <div class="home-buttons">
+      <h5>Total Costs:</h5>
+      <h2 class="home-totals">£{{total}}</h2>
+    </div>
+    <div class="home-buttons">
+      <h5>Number of Transactions:</h5>
+      <h2 class="home-totals">{{number_transactions}}</h2>
+    </div>
+    <div>
+      <img src="static/graphs/cost_by_cat.png" onerror="this.onerror=null;this.src='static/graphs/default.png';" alt="Cost by Category">
+    </div>
+    <div class="home-buttons">
+      <h5>Number of Suppliers:</h5>
+      <h2 class="home-totals">{{number_suppliers}}</h2>
+    </div>
+    <div class="home-buttons">
+      <h5>Number of Categories:</h5>
+      <h2 class="home-totals">{{number_categories}}</h2>
+    </div>
+  </div>
+</section>
 
 {% endblock %}

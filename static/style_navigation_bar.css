@@ -1,64 +1,80 @@
-header h1 {
-    text-align: center;
-    margin: 40px 0 40px;
-    text-align: center;
-    font-size: 30px;
-    color: #ecf0f1;
-    text-shadow: 2px 2px 4px #000000;
-  }
-  
-  header>nav {
-    margin: 27px auto;
-    width: 115rem;
-    height: 50px;
-    background-color: #34495e;
-    border-radius: 8px;
-    font-size: 0;
-  }
-  
-  header nav ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-  }
-  
-  header nav ul li a {
-    line-height: 50px;
-    height: 100%;
-    font-size: 15px;
-    display: inline-block;
-    position: relative;
-    z-index: 1;
-    text-decoration: none;
-    text-transform: uppercase;
-    text-align: center;
-    color: white;
-    cursor: pointer;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  
-  header p {
-    position: absolute;
-    bottom: 20px;
-    width: 100%;
-    text-align: center;
-    color: #ecf0f1;
-    font-family: 'Cherry Swash',cursive;
-    font-size: 16px;
-  }
-  
-  nav a:hover{ 
-    background-color: #e64e4e; 
-    color: white; 
-    border-radius: 5px;
-  } 
-  
-  nav input {
-    display: none;
-  }
-  
-  nav ul li input:checked+a {
-    background-color:#e64e4e;
-    color:#fff;
-  }
+nav {
+  background-color: dodgerblue;
+  min-height: 61rem;
+  height: 100%;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items:   center;
+}
+
+nav h1 {
+  padding: 3vw;
+  font-size: 3rem;
+  text-align: center;
+  margin-top: -1rem;
+}
+
+nav ul {
+  width: 100%;
+  list-style: none;
+  min-height: 60vh;
+  justify-content: space-between;
+}
+
+nav a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: -1rem;
+}
+
+nav ul li a {
+  padding: 1.5rem;
+}
+
+nav ul li a:hover {
+  background-color: #e64e4e;;
+  color: #F8F9FA;
+}
+
+.active, .active:hover {
+    background-color: #e64e4e;
+    color: #F8F9FA;
+}
+
+nav ul li a {
+  display: block;
+  font-weight: 500;
+}
+
+.month-filter ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  list-style: none;
+  width: 95%;
+  background-color: navy;
+  font-weight: bold;
+}
+
+.month-filter ul li a {
+  line-height: 50px;
+  height: 100%;
+  font-size: 15px;
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+  padding-inline: 1rem;
+}
+
+.month-filter ul li a:hover {
+  cursor: pointer;
+  background-color: #e64e4e;
+}

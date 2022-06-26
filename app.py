@@ -11,9 +11,7 @@ app.register_blueprint(transactions_blueprint)
 app.register_blueprint(categories_blueprint)
 app.register_blueprint(stats_blueprint)
 
-@app.route('/')
-def index():
-    return render_template("index.html")
+#Run App - Flask
 
 if __name__ == "__main__":
     app.run(debug=True)

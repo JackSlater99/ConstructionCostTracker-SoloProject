@@ -1,50 +1,75 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>Transactions</h2>
-<section>
-  <a href="/transactions/new"><button>Add New Transaction</button></a>
+<h1>Transactions</h1>
+<br>
+<p>Transactions are displayed on the page below, click on a product to view further details about that transaction or to edit any details. If you would like to add a new transaction, press the button below.</p>
+<section class="buttons">
+  <div class="top-buttons add-transaction">
+    <a href="/transactions/new">
+        <p>Add Transaction</p>
+        <i class="fa-solid fa-money-bill-transfer fa-3x"></i>
+    </a>
+  </div>
+  <div class="top-buttons">
+    <h5>Number of Transactions:</h5>
+    <h2 class="totals">{{number_transactions}}</h2>
+  </div>
+  <div class="top-buttons">
+    <h5>Total:</h5>
+    <h2 class="totals">£{{total}}</h2>
+  </div>
 </section>
 
-<div class="dropdown">
-  <div id="myDropdown" class="dropdown-content">
-    <a href="/transactions">All</a>
-    <a href="/transactions/month/1">January</a>
-    <a href="/transactions/month/2">February</a>
-    <a href="/transactions/month/3">March</a>
-    <a href="/transactions/month/4">April</a>
-    <a href="/transactions/month/5">May</a>
-    <a href="/transactions/month/6">June</a>
-    <a href="/transactions/month/7">July</a>
-    <a href="/transactions/month/8">August</a>
-    <a href="/transactions/month/9">September</a>
-    <a href="/transactions/month/10">October</a>
-    <a href="/transactions/month/11">November</a>
-    <a href="/transactions/month/12">December</a>
-  </div>
+<h2>Filter by Month</h2>
+<p>Select a month below to display all of the transactions for that month:</p>
+<div class="month-filter">
+  <ul>
+    <li><a href="/transactions">All</a></li>
+    <li><a href="/transactions/month/1">January</a></li>
+    <li><a href="/transactions/month/2">February</a></li>
+    <li><a href="/transactions/month/3">March</a></li>
+    <li><a href="/transactions/month/4">April</a></li>
+    <li><a href="/transactions/month/5">May</a></li>
+    <li><a href="/transactions/month/6">June</a></li>
+    <li><a href="/transactions/month/7">July</a></li>
+    <li><a href="/transactions/month/8">August</a></li>
+    <li><a href="/transactions/month/9">September</a></li>
+    <li><a href="/transactions/month/10">October</a></li>
+    <li><a href="/transactions/month/11">November</a></li>
+    <li><a href="/transactions/month/12">December</a></li>
+  </ul>
 </div>
 
+<table id="table">
+  <tr>
+      <th>Product</th>
+      <th>Category</th>
+      <th>Supplier</th>
+      <th>PO Number</th>
+      <th>Date</th>
+      <th>Amount</th>
+      <th></th>
+  </tr>
 
 
-{% for transaction in transactions %}
-  <div class="display-entries">
-    <div class="content">
-      <a href="/transactions/{{transaction.id}}">{{transaction.product}}</a>
-      <div class="description">
-        <a href="/suppliers/{{transaction.supplier.id}}">{{transaction.supplier.supplier_name}}</a>
-      </div>
+  {% for transaction in filtered_transactions %}
 
-      <p>PO Number: {{transaction.po_number}}</p>
-      <p>Price: £{{transaction.price}}</p>
-      <p>Order Date: {{transaction.date}}</p>
-      
-      
-      <div class="buttons">
-        <form class="delete-form" action="/transactions/{{transaction.id}}/delete" method="POST"> <!-- NEW -->
-          <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:red" aria-hidden="true"></i></button> <!-- NEW -->
-        </form>
-      </div>
-    </div>
-  </div>
-{% endfor %}
+  <tr>
+      <td><a href="/transactions/{{transaction.id}}" class="rowlink">{{transaction.product}}</a></td>
+      <td>{{transaction.category.sub_cat}}</td>
+      <td>{{transaction.supplier.supplier_name}}</td>
+      <td>{{transaction.po_number}}</td>
+      <td>{{transaction.date[-2] + transaction.date[-1] + "/" + transaction.date[-5] + transaction.date[-4] + "/" + transaction.date[0] + transaction.date[1] + transaction.date[2] + transaction.date[3]}}</td>
+      <td>£{{transaction.price}}</td>
+      <td class="table-buttons">
+          <a href="/transactions/{{transaction.id}}/edit"><i class="fa-solid fa-pen-to-square small-icon"></i></a>
+          <form class="delete-form" action="/transactions/{{transaction.id}}/delete" method="POST"> 
+            <button class="trash-button"><i class="fa-solid fa-trash-can small-icon"></i></button>
+          </form>
+      </td>
+  </tr>
+
+  {% endfor %}
+</table>
 {% endblock %}

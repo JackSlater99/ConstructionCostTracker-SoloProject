@@ -2,16 +2,18 @@
 
 {% block content %}
 
-  <div>
-    <p>{{transaction.product}}</p>
-    <a href="/suppliers/{{transaction.supplier.id}}">{{transaction.supplier.supplier_name}}</a>
+  <div class="show-form new-form">
+    <h2>{{transaction.product}}</h2>
+    <br>
+    <a href="/suppliers/{{transaction.supplier.id}}"><i class="fa-solid fa-link sideicon"></i> {{transaction.supplier.supplier_name}}</a>
     <hr>
     <p>PO Number: {{transaction.po_number}}</p>
-    <p>Price: {{transaction.price}}</p>
-    <p>Order Date: {{transaction.date}}</p>
+    <p>Price: £{{transaction.price}}</p>
+    <p>Order Date: {{transaction.date[-2] + transaction.date[-1] + "/" + transaction.date[-5] + transaction.date[-4] + "/" + transaction.date[0] + transaction.date[1] + transaction.date[2] + transaction.date[3]}}</p>
     <p>{{transaction.category.main_cat}} - {{transaction.category.sub_cat}}</p>
     <p>Invoice: {{transaction.invoice_number}}</p>
-    <p><a href="/transactions/{{transaction.id}}/edit">Edit</a></p>
+    <br>
+    <a href="/transactions/{{transaction.id}}/edit"><i class="fa-solid fa-pen-to-square fa-2xl"></i></a>
   </div>
 
 {% endblock %}

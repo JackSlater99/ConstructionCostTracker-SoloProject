@@ -6,21 +6,22 @@ from flask import Blueprint
 
 suppliers_blueprint = Blueprint("suppliers", __name__)
 
-#INDEX
+#SUPPLIER INDEX
 
 @suppliers_blueprint.route("/suppliers")
 def suppliers():
     suppliers = supplier_repository.select_all()
-    return render_template("suppliers/index.html", all_suppliers = suppliers)
+    number_suppliers = len(suppliers)
+    return render_template("suppliers/index.html", all_suppliers = suppliers, number_suppliers = number_suppliers)
 
-#NEW
+#NEW SUPPLIER
 
 @suppliers_blueprint.route("/suppliers/new", methods=["GET"])
 def new_suppliers():
     suppliers = supplier_repository.select_all()
     return render_template("suppliers/new.html", all_suppliers = suppliers)
 
-#CREATE
+#CREATE SUPPLIER
 
 @suppliers_blueprint.route("/suppliers", methods=["POST"])
 def create_suppliers():
@@ -33,23 +34,23 @@ def create_suppliers():
     supplier_repository.save(supplier)
     return redirect("/suppliers")
 
-#SHOW
+#SHOW SUPPLIER
 
 @suppliers_blueprint.route("/suppliers/<id>", methods=["GET"])
 def show_supplier(id):
     found_supplier = supplier_repository.select(id)
-    found_transactions = transaction_repository.select_all_by_category(id)
+    found_transactions = transaction_repository.select_all_by_supplier(id)
     return render_template("suppliers/show.html", supplier = found_supplier, transactions = found_transactions)
 
 
-#EDIT
+#EDIT SUPPLIER
 
 @suppliers_blueprint.route("/suppliers/<id>/edit")
 def edit_suppliers(id):
     supplier = supplier_repository.select(id)
     return render_template("/suppliers/edit.html", supplier = supplier)
 
-#UPDATE
+#UPDATE SUPPLIER
 
 @suppliers_blueprint.route("/suppliers/<id>", methods=["POST"])
 def update_supplier(id):
@@ -62,7 +63,7 @@ def update_supplier(id):
     supplier_repository.update(supplier)
     return redirect("/suppliers")
 
-#DELETE
+#DELETE SUPPLIER
 
 @suppliers_blueprint.route("/suppliers/<id>/delete", methods=["POST"])
 def delete_supplier(id):

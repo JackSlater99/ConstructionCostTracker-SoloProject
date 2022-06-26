@@ -2,38 +2,48 @@
 
 {% block content %}
 
-  <div>
-    <p>{{supplier.supplier_name}}</p>
+  <div class="show-form new-form">
+    <h2>{{supplier.supplier_name}}</h2>
     <hr>
     <p>Account Number: {{supplier.supplier_number}}</p>
     <p>Account Manager: {{supplier.supplier_manager}}</p>
     <p>Address: {{supplier.supplier_address}}</p>
     <p>Phone: {{supplier.supplier_phone}}</p>
-    <p><a href="/suppliers/{{supplier.id}}/edit">Edit</a></p>
+    <br>
+    <a href="/suppliers/{{supplier.id}}/edit"><i class="fa-solid fa-pen-to-square fa-2xl"></i></a>
   </div>
-
-  <hr>
-
-  {% for transaction in transactions %}
-    <div class="display-entries">
-      <div class="content">
-        <a href="/transactions/{{transaction.id}}">{{transaction.product}}</a>
-        <div class="description">
-          <a href="/suppliers/{{transaction.supplier.id}}">{{transaction.supplier.supplier_name}}</a>
-        </div>
+  <br>
+  <table id="table">
+    <tr>
+        <th>Product</th>
+        <th>Category</th>
+        <th>Supplier</th>
+        <th>PO Number</th>
+        <th>Date</th>
+        <th>Amount</th>
+        <th></th>
+    </tr>
   
-        <p>PO Number: {{transaction.po_number}}</p>
-        <p>Price: £{{transaction.price}}</p>
-        <p>Order Date: {{transaction.date}}</p>
-        
-        
-        <div class="buttons">
-          <form class="delete-form" action="/transactions/{{transaction.id}}/delete" method="POST"> 
-            <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:red" aria-hidden="true"></i></button>
-          </form>
-        </div>
-      </div>
-    </div>
-  {% endfor %}
+  
+    {% for transaction in transactions %}
+  
+    <tr>
+        <td><a href="/transactions/{{transaction.id}}" class="rowlink">{{transaction.product}}</a></td>
+        <td>{{transaction.category.sub_cat}}</td>
+        <td>{{transaction.supplier.supplier_name}}</td>
+        <td>{{transaction.po_number}}</td>
+        <td>{{transaction.date}}</td>
+        <td>£{{transaction.price}}</td>
+        <td class="table-buttons">
+            <a href="/transactions/{{transaction.id}}/edit"><i class="fa-solid fa-pen-to-square small-icon"></i></a>
+            <form class="delete-form" action="/transactions/{{transaction.id}}/delete" method="POST"> 
+              <button class="trash-button"><i class="fa-solid fa-trash-can small-icon"></i></button>
+            </form>
+        </td>
+    </tr>
+  
+    {% endfor %}
+  </table>
+
 
 {% endblock %}

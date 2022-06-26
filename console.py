@@ -14,3 +14,5 @@ supplier_repository.save(supplier_2)
 supplier_repository.select_all()
 
 pdb.set_trace()
+
+#Add Suppliers to Database
