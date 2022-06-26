@@ -70,11 +70,11 @@ Jack Slater - https://www.linkedin.com/in/j-slater99/
 
 ## Version History
 
-0.2.0
+* 0.2.0
     *CSS/Frontend Overhaul
     *Bug Fixes
     *Stats Page deleted and integrated to home page
-0.1.0
+* 0.1.0
     * Initial Release
     
 ## Acknowledgments
