@@ -2,7 +2,7 @@
 
 This solo project was created during week 5 of the CodeClan Proffesional Software Development Course. The project week gave us a choice of 4 project briefs to complete which would showcase the skills learnt in the first 4 weeks of the course.
 
-https://user-images.githubusercontent.com/101419891/175836210-a2194fc7-9c9f-4b63-a35e-e7dcad6363e2.mp4
+https://user-images.githubusercontent.com/101419891/175836238-d8ca4bd4-e91f-48e7-807c-e1f717202fd9.mp4
 
 ## Brief
 
