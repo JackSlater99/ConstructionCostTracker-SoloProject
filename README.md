@@ -2,7 +2,7 @@
 
 This solo project was created during week 5 of the CodeClan Proffesional Software Development Course. The project week gave us a choice of 4 project briefs to complete which would showcase the skills learnt in the first 4 weeks of the course.
 
-![image](https://user-images.githubusercontent.com/101419891/174460014-205e0661-fe98-4faf-b212-bdf101bcb167.png)
+![image](https://user-images.githubusercontent.com/101419891/175834995-f6a7dc2e-6c55-4f48-bbc9-fa1a991f8dad.png)
 
 ## Brief
 
@@ -45,7 +45,7 @@ pip install -U Flask
 pip install -U matplotlib 
 ```
 
-### Executing program
+### Executing Program
 
 * Create Database with pSQL:
 ```bash
@@ -62,8 +62,6 @@ flask run
 
 Navigate to http://127.0.0.1:5000 (default route for Flask) in your browser or click on the link in the terminal.
 
-## Help
-
 ## Authors
 
 Contributors names and contact info:
@@ -72,7 +70,11 @@ Jack Slater - https://www.linkedin.com/in/j-slater99/
 
 ## Version History
 
-1.0
+0.2.0
+    *CSS/Frontend Overhaul
+    *Bug Fixes
+    *Stats Page deleted and integrated to home page
+0.1.0
     * Initial Release
     
 ## Acknowledgments
