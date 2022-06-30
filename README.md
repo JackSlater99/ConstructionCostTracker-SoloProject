@@ -82,7 +82,3 @@ Jack Slater - https://www.linkedin.com/in/j-slater99/
 * Further MATplotlib Graphs and filtering functionality.
 * Better Recurring Cost Tracking - The current system tracks one-time entries, the plan is to streamline this by allowing for start and end date entries so costs will recur each week/month to save the user from having to re-enter items during each period. An example for this use would be for plant items, the cost will be added each week from the on-hire date and then can be ended by adding an off-hire date.
 
-## Acknowledgments
-
-* [Dom Pizzie](https://gist.github.com/DomPizzie) - README - Template Author
-
